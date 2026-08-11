@@ -60,7 +60,9 @@ preenchido — não precisa caçar no código.
 ### Fotos
 - [ ] Retrato da Dra. Flávia (vertical 4:5)
 - [ ] Foto dela no consultório (vertical 3:4)
-- [ ] Salvar em `assets/img/` as fotos da clínica e a arte do tríptico
+- [x] Arte do tríptico e fotos da clínica — já no site
+- [ ] Se existirem, substituir as fotos da clínica pelos originais da câmera
+      (as atuais vieram reduzidas; ver `assets/img/LEIA-ME.txt`)
 
 ### Antes de publicar de verdade
 - [ ] Remover a linha `<meta name="robots" content="noindex, nofollow">` do

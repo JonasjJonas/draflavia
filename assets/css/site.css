@@ -266,7 +266,7 @@ h2 + p, h2 + .lead{ margin-top:1.1rem }
    descarta a legenda gravada na própria arte — quem escreve o título aqui é
    a tipografia da página, para o texto ficar legível e selecionável. */
 .painel__art{
-  aspect-ratio:39/50;
+  aspect-ratio:19/25;   /* corta em y≈738 de 934: abaixo do desenho, acima da legenda */
   overflow:hidden;
   border:var(--filete);
   background:var(--papel-2);
@@ -401,14 +401,15 @@ h2 + p, h2 + .lead{ margin-top:1.1rem }
    "--ar" é a proporção da janela e "--foco" diz que pedaço da foto original
    aparece dentro dela. As contas abaixo valem para os arquivos originais.
 
-   consultorio.jpg (1280x960) → mostra x≈490..1114:
+   consultorio.jpg (1280x960) → mostra x≈492..1116:
      a estante, a mesa de vidro e as duas cadeiras da paciente.
      Fica de fora o equipamento oftalmológico da esquerda e o da borda direita.
-   recepcao.jpg (1179x737) → mostra x≈0..590:
-     poltronas, plantas e a entrada; a placa "Lavezzo & Takigami" fica de fora. */
+   recepcao.jpg (1084x712) → mostra x≈0..570:
+     poltronas, plantas e a entrada; a placa "Lavezzo & Takigami", que começa
+     em x≈730, fica fora do quadro. */
 .frame--consultorio{ --ar:13/20; --foco:75% 50% }
 .frame--lounge{ --ar:4/3; --foco:50% 50% }
-.frame--entrada{ --ar:4/5; --foco:0% 50% }
+.frame--entrada{ --ar:4/5; --foco:24% 50% }
 
 /* ---------- informações práticas ---------- */
 .pratico{
