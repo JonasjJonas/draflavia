@@ -1,0 +1,58 @@
+ARQUIVOS DE IMAGEM ESPERADOS NESTA PASTA
+========================================
+
+O site já aponta para estes nomes. Basta soltar os arquivos aqui com o nome
+exato — o placeholder "◇ FALTA" some sozinho, sem mexer em código.
+
+
+JÁ TENHO (é só você salvar aqui os que anexou no chat)
+------------------------------------------------------
+
+arte-triptico.jpg     A arte das três ilustrações (ginecologia, obstetrícia,
+                      medicina fetal) em UM arquivo só, na horizontal, como
+                      você me mandou. O site recorta os três painéis sozinho.
+                      Proporção esperada: ~1712 x 963 (16:9).
+
+consultorio.jpg       Foto da sala de atendimento (a com a mesa e as cadeiras).
+                      Salve a ORIGINAL inteira (1280x960) — quem recorta é o
+                      site. A janela mostra x≈490 a 1114: a estante, a mesa de
+                      vidro e as duas cadeiras. Ficam de fora a lâmpada de
+                      fenda e o autorrefrator (esquerda) e o aparelho da borda
+                      direita.
+                      Para ajustar o recorte, uma linha só:
+                      assets/css/site.css → .frame--consultorio
+                          --ar   = proporção da janela (13/20 = retrato alto)
+                          --foco = 75% 50%  (o 1º número anda para a direita)
+
+lounge.jpg            Sala de espera com o sofá azul e as poltronas.
+                      Entra inteira, sem recorte forte.
+
+recepcao.jpg          A foto da recepção. Nela aparece a placa "Lavezzo &
+                      Takigami — Oftalmologia | Dermatologia" na parede, que
+                      não faz sentido num site de ginecologia. Por isso o site
+                      usa só a METADE ESQUERDA (x≈0 a 590): poltronas, plantas
+                      e a entrada — a placa fica fora do quadro, e a legenda é
+                      "Entrada" em vez de "Recepção".
+                      Controle em .frame--entrada { --ar:4/5; --foco:0% 50% }
+                      Se preferir tirar essa foto, apague o <figure> com
+                      class="plate" que tem frame--entrada no index.html.
+
+
+AINDA FALTA (é a lacuna marcada no site)
+-----------------------------------------
+
+dra-flavia-retrato.jpg   Retrato da Dra. Flávia, VERTICAL, proporção 4:5.
+                         Aparece no topo da página, ao lado do nome.
+                         Ideal: 1200 x 1500 px, fundo neutro, luz suave.
+
+dra-flavia-sobre.jpg     Foto dela no consultório, VERTICAL, proporção 3:4.
+                         Aparece na seção escura "Sobre a Dra. Flávia".
+                         Ideal: 1200 x 1600 px. Pode ser mais informal —
+                         em atendimento, jaleco, ambiente do consultório.
+
+
+DICAS DE ARQUIVO
+----------------
+- JPG com qualidade ~80 já basta. Tente manter cada foto abaixo de 500 KB.
+- Para redimensionar rápido no Mac, sem instalar nada:
+      sips -Z 1600 foto.jpg --out foto-web.jpg
