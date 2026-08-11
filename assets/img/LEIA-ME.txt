@@ -4,51 +4,51 @@ IMAGENS DO SITE
 JÁ ESTÃO AQUI
 -------------
 
-arte-triptico.jpg     1684 x 934 — a arte dos três painéis num arquivo só.
-                      O site recorta os três sozinho: cada painel é um terço
-                      da largura, e o corte de baixo (aspect-ratio 19/25, ou
-                      seja y≈0..738) descarta a legenda gravada na arte. O
-                      título de cada painel é escrito pela tipografia da
-                      página — assim o texto é legível, selecionável e
-                      encontrável pelo Google.
-                      Controle: assets/css/site.css → .painel__art
+arte-blefaroplastia.jpg   807 x 912 — painel esquerdo da prancha.
+arte-oftalmologia.jpg     807 x 912 — painel direito da prancha.
 
-consultorio.jpg       1280 x 960 — a sala de atendimento, original inteira.
-                      O site mostra só x≈492..1116: a estante, a mesa de
-                      vidro e as duas cadeiras. Ficam de fora a lâmpada de
-                      fenda e o autorrefrator (esquerda) e o aparelho da
-                      borda direita.
-                      Controle: .frame--consultorio { --ar:13/20; --foco:75% 50% }
-                      (o 1º número do --foco anda para a direita)
+     Vieram da arte que você mandou (1660 x 912, os dois painéis com uma
+     divisória escura no meio, em x 807..852). Separei em dois arquivos:
+     assim dá para trocar um painel sem mexer no outro, e a divisória some.
+     Se mandar uma arte nova, salve já cortada em dois, na proporção 807:912
+     (ou perto disso). Controle: assets/css/site.css → .painel__art
 
-lounge.jpg            1107 x 714 — sala de espera. Entra quase inteira.
-                      Controle: .frame--lounge { --ar:4/3; --foco:50% 50% }
+consultorio.jpg           1280 x 960 — a sala de exames, original inteira.
+     Entra em toda a largura; o corte é só na altura (16/9 mostra 75% dela,
+     puxado para baixo) para tirar excesso de teto. Aparecem a lâmpada de
+     fenda e o autorrefrator à esquerda e a mesa de consulta à direita —
+     agora isso é conteúdo, não problema.
+     Controle: .frame--consultorio { --ar:16/9; --foco:50% 62% }
+     (o 2º número do --foco desce o enquadramento)
 
-recepcao.jpg          1084 x 712 — o mesmo ambiente por outro ângulo.
-                      A placa "Lavezzo & Takigami — Oftalmologia |
-                      Dermatologia" começa em x≈715 nesta foto; o site mostra
-                      x≈134..693, então ela fica fora do quadro. Por isso a
-                      legenda é "Entrada", e não "Recepção".
-                      Controle: .frame--entrada { --ar:4/5; --foco:24% 50% }
-                      ATENÇÃO: aumentar o --foco além de 28% traz a placa de
-                      volta para dentro do quadro.
+lounge.jpg                1107 x 714 — sala de espera.
+     Controle: .frame--lounge { --ar:4/5; --foco:50% 50% }
 
-Estes quatro arquivos vieram das imagens anexadas na conversa, que já são
-versões reduzidas. Se você tiver os ORIGINAIS da câmera, é só sobrescrever
-com o mesmo nome — a página melhora sem precisar de nenhuma mudança de
-código, desde que a proporção seja parecida. Se a proporção mudar muito,
-reveja os valores de --foco acima.
+recepcao.jpg              1084 x 712 — o mesmo ambiente por outro ângulo.
+     A placa "Lavezzo & Takigami — Oftalmologia | Dermatologia" começa em
+     x≈715 nesta foto; o site mostra x≈134..693, então ela fica fora do
+     quadro, e a legenda é "Entrada" em vez de "Recepção".
+     Controle: .frame--entrada { --ar:4/5; --foco:24% 50% }
+     ATENÇÃO: passar o --foco de 28% traz a placa de volta para dentro.
+     Se essa é a clínica onde a Dra. Inara atende e não há problema em
+     mostrar a marca, dá para usar a foto inteira: troque para
+     { --ar:16/10; --foco:50% 50% } e mude a legenda para "Recepção".
+
+As fotos e a arte vieram das imagens anexadas na conversa, que já são
+versões reduzidas. Se você tiver os ORIGINAIS, é só sobrescrever com o
+mesmo nome — a página melhora sem nenhuma mudança de código, desde que a
+proporção seja parecida. Se mudar muito, reveja os valores de --foco acima.
 
 
 AINDA FALTA
 -----------
 
-dra-flavia-retrato.jpg   Retrato da Dra. Flávia, VERTICAL, proporção 4:5.
+dra-inara-retrato.jpg    Retrato da Dra. Inara, VERTICAL, proporção 4:5.
                          Topo da página, ao lado do nome.
                          Ideal: 1200 x 1500 px, fundo neutro, luz suave.
 
-dra-flavia-sobre.jpg     Foto dela no consultório, VERTICAL, proporção 3:4.
-                         Seção escura "Sobre a Dra. Flávia".
+dra-inara-sobre.jpg      Foto dela no consultório, VERTICAL, proporção 3:4.
+                         Seção escura "Sobre a Dra. Inara".
                          Ideal: 1200 x 1600 px. Pode ser mais informal —
                          em atendimento, no ambiente do consultório.
 

@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Dra. Flávia Mameria — folha de estilo única
+   Dra. Inara Contin Rassi — folha de estilo única
    Paleta e ritmo tirados da arte (pergaminho, tinta sépia, ouro velho, sálvia).
    Sem gradientes decorativos, sem cards genéricos, sem grão sintético.
    ========================================================================== */
@@ -255,26 +255,25 @@ h2 + p, h2 + .lead{ margin-top:1.1rem }
 /* ==========================================================================
    TRÍPTICO — os três painéis da arte
    ========================================================================== */
-.triptico{
-  display:grid; gap:clamp(2rem,4vw,3rem);
+.diptico{
+  display:grid; gap:clamp(2rem,4vw,3.5rem);
+  max-width:1060px;
   margin-bottom:clamp(4rem,8vw,6.5rem);
 }
-@media (min-width:820px){ .triptico{ grid-template-columns:repeat(3,1fr) } }
+@media (min-width:760px){ .diptico{ grid-template-columns:repeat(2,1fr) } }
 
-/* A arte vem num arquivo só, com os três painéis lado a lado.
-   O recorte é feito por largura (300% = três painéis) e o corte de baixo
-   descarta a legenda gravada na própria arte — quem escreve o título aqui é
-   a tipografia da página, para o texto ficar legível e selecionável. */
+/* Cada painel da arte é um arquivo próprio (807x912), já separado da
+   prancha original — assim dá para trocar um sem mexer no outro. */
 .painel__art{
-  aspect-ratio:19/25;   /* corta em y≈738 de 934: abaixo do desenho, acima da legenda */
+  aspect-ratio:807/912;
   overflow:hidden;
   border:var(--filete);
   background:var(--papel-2);
   margin-bottom:1.75rem;
 }
 .painel__art img{
-  width:300%; max-width:none; height:auto;
-  margin-left:calc(var(--i, 0) * -100%);
+  width:100%; height:100%;
+  object-fit:cover;
 }
 .painel h3{ margin-bottom:.35rem }
 .painel__tag{
@@ -392,23 +391,23 @@ h2 + p, h2 + .lead{ margin-top:1.1rem }
   max-width:1120px;
   margin-bottom:clamp(3.5rem,7vw,5.5rem);
 }
-@media (min-width:820px){
-  .galeria{ grid-template-columns:1.15fr 1fr; align-items:start }
-  .plate--wide{ grid-row:span 2 }
+@media (min-width:760px){
+  .galeria{ grid-template-columns:1fr 1fr; align-items:start }
+  .plate--wide{ grid-column:1 / -1 }
 }
 
 /* Recortes das fotos da clínica.
    "--ar" é a proporção da janela e "--foco" diz que pedaço da foto original
-   aparece dentro dela. As contas abaixo valem para os arquivos originais.
+   aparece dentro dela.
 
-   consultorio.jpg (1280x960) → mostra x≈492..1116:
-     a estante, a mesa de vidro e as duas cadeiras da paciente.
-     Fica de fora o equipamento oftalmológico da esquerda e o da borda direita.
-   recepcao.jpg (1084x712) → mostra x≈0..570:
-     poltronas, plantas e a entrada; a placa "Lavezzo & Takigami", que começa
-     em x≈730, fica fora do quadro. */
-.frame--consultorio{ --ar:13/20; --foco:75% 50% }
-.frame--lounge{ --ar:4/3; --foco:50% 50% }
+   consultorio.jpg (1280x960) → entra inteira na largura. O corte é só na
+     altura (16/9 mostra 75% dela, puxado para baixo) para tirar o excesso de
+     teto e deixar em cena o equipamento à esquerda e a mesa à direita.
+   recepcao.jpg (1084x712) → mostra x≈134..693. A placa "Lavezzo & Takigami"
+     começa em x≈715 e fica fora do quadro; por isso a legenda é "Entrada".
+     Passar o --foco de 28% traz a placa de volta. */
+.frame--consultorio{ --ar:16/9; --foco:50% 62% }
+.frame--lounge{ --ar:4/5; --foco:50% 50% }
 .frame--entrada{ --ar:4/5; --foco:24% 50% }
 
 /* ---------- informações práticas ---------- */

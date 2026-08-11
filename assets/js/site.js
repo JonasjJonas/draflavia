@@ -1,4 +1,4 @@
-/* Dra. Flávia Mameria — comportamento mínimo.
+/* Dra. Inara Contin Rassi — comportamento mínimo.
    Nada de biblioteca: quatro coisas pequenas e só. */
 
 (() => {
