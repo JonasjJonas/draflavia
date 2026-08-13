@@ -25,6 +25,12 @@ jobs:
 
       - uses: actions/configure-pages@v5
 
+      # O GitHub Pages serve tudo com Cache-Control: max-age=600, e não dá
+      # para mudar isso. Carimbar o commit na URL do CSS e do JS garante que
+      # um HTML novo nunca venha acompanhado de um CSS velho do cache.
+      - name: Carimba a versão nos assets
+        run: sed -i "s/?v=dev/?v=${GITHUB_SHA::8}/g" index.html
+
       # Site estático: sobe a raiz do repositório como está.
       - uses: actions/upload-pages-artifact@v3
         with:
