@@ -323,17 +323,26 @@ h2 + p, h2 + .lead{ margin-top:1.1rem }
   margin-bottom:1.1rem;
 }
 .listing li{
-  padding:.5rem 0 .5rem 1.15rem;
+  padding:.65rem 0 .65rem 1.15rem;
   position:relative;
-  color:var(--tinta-fraca);
+  color:var(--tinta);
   font-size:.9688rem;
   line-height:1.5;
 }
+.listing li + li{ border-top:1px solid color-mix(in srgb, var(--ouro) 15%, transparent) }
 .listing li::before{
   content:'';
-  position:absolute; left:0; top:1.1em;
+  position:absolute; left:0; top:1.25em;
   width:5px; height:1px;
   background:var(--ouro);
+}
+/* Explicação curta do que é cada procedimento, em linguagem de paciente. */
+.listing li span{
+  display:block;
+  margin-top:.15rem;
+  font-size:.8438rem;
+  line-height:1.5;
+  color:var(--tinta-fraca);
 }
 
 /* ==========================================================================
