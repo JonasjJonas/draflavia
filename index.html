@@ -15,7 +15,7 @@
 <meta property="og:locale" content="pt_BR">
 <meta property="og:title" content="Dra. Inara Contin Rassi — Oftalmologia e Blefaroplastia">
 <meta property="og:description" content="Consultório de oftalmologia e cirurgia de pálpebras em São Paulo.">
-<meta property="og:image" content="assets/img/arte-oftalmologia.jpg">
+<meta property="og:image" content="assets/img/consultorio.jpg">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -29,6 +29,9 @@
 <a class="skip" href="#conteudo">Ir para o conteúdo</a>
 
 <header class="topbar" id="topo">
+  <!-- fio de progresso da leitura (CSS puro, animation-timeline) -->
+  <span class="progresso" aria-hidden="true"></span>
+
   <div class="topbar__in wrap">
     <a class="brand" href="#topo">
       <span class="brand__name">Inara Contin Rassi</span>
@@ -43,7 +46,7 @@
       <a href="#contato">Contato</a>
     </nav>
 
-    <a class="btn btn--sm" href="#contato">Agendar</a>
+    <a class="btn btn--sm" href="https://wa.me/5511930455259?text=Ol%C3%A1%21%20Gostaria%20de%20agendar%20uma%20consulta%20com%20a%20Dra.%20Inara." target="_blank" rel="noopener">Agendar</a>
 
     <button class="burger" type="button" aria-expanded="false" aria-controls="nav-mobile" aria-label="Abrir menu">
       <span></span><span></span>
@@ -80,7 +83,7 @@
         </p>
 
         <div class="actions">
-          <a class="btn" href="#contato">Agendar consulta</a>
+          <a class="btn" href="https://wa.me/5511930455259?text=Ol%C3%A1%21%20Gostaria%20de%20agendar%20uma%20consulta%20com%20a%20Dra.%20Inara." target="_blank" rel="noopener">Agendar pelo WhatsApp</a>
           <a class="btn btn--ghost" href="#atendimento">O que eu atendo</a>
         </div>
       </div>
@@ -107,34 +110,36 @@
         </p>
       </header>
 
-      <div class="diptico">
+      <div class="frentes">
 
-        <article class="painel" data-reveal>
-          <div class="painel__art" data-missing="Arte — blefaroplastia">
-            <img src="assets/img/arte-blefaroplastia.jpg" alt="Ilustração em traço sépia: avaliação das pálpebras antes de uma blefaroplastia" decoding="async" width="807" height="912">
-          </div>
+        <article class="frente" data-reveal>
           <h3>Blefaroplastia</h3>
-          <p class="painel__tag">Pálpebras · Campo visual · Expressão</p>
-          <p>
+          <p class="frente__tag">Pálpebras · Campo visual · Expressão</p>
+          <p class="frente__texto">
             Cirurgia das pálpebras superiores e inferiores. A avaliação começa
             separando duas coisas que costumam vir juntas: a pele que sobra e
             fecha o campo visual de cima, e o que incomoda no espelho. São
             indicações diferentes, com conversas diferentes — inclusive sobre
             convênio.
           </p>
+          <p class="frente__itens">
+            Pálpebra superior · Pálpebra inferior · Ptose · Entrópio e ectrópio ·
+            Lesões de pálpebra
+          </p>
         </article>
 
-        <article class="painel" data-reveal>
-          <div class="painel__art" data-missing="Arte — oftalmologia">
-            <img src="assets/img/arte-oftalmologia.jpg" alt="Ilustração em traço sépia: olho e aparelho de refração" decoding="async" width="807" height="912">
-          </div>
+        <article class="frente" data-reveal>
           <h3>Oftalmologia</h3>
-          <p class="painel__tag">Diagnóstico · Prevenção · Acompanhamento</p>
-          <p>
+          <p class="frente__tag">Diagnóstico · Prevenção · Acompanhamento</p>
+          <p class="frente__texto">
             Consulta completa: grau, pressão intraocular, exame na lâmpada de
             fenda e fundo de olho. Serve tanto para quem só quer conferir a
             receita quanto para quem já tem diagnóstico e precisa de
-            acompanhamento com intervalo certo.
+            acompanhamento com o intervalo certo.
+          </p>
+          <p class="frente__itens">
+            Refração · Lentes de contato · Glaucoma · Catarata ·
+            Retinopatia diabética · Olho seco
           </p>
         </article>
 
@@ -463,11 +468,13 @@
       <ul class="canais">
         <li>
           <span class="canais__label">WhatsApp</span>
-          <span class="gap gap--lg" data-gap="número do WhatsApp (com DDD) para gerar o link wa.me">◇ falta</span>
+          <a class="canais__valor" href="https://wa.me/5511930455259?text=Ol%C3%A1%21%20Gostaria%20de%20agendar%20uma%20consulta%20com%20a%20Dra.%20Inara." target="_blank" rel="noopener">
+            (11)&nbsp;93045-5259
+          </a>
         </li>
         <li>
           <span class="canais__label">Telefone</span>
-          <span class="gap gap--lg" data-gap="telefone fixo do consultório">◇ falta</span>
+          <a class="canais__valor" href="tel:+5511930455259">(11)&nbsp;93045-5259</a>
         </li>
         <li>
           <span class="canais__label">E-mail</span>
@@ -511,7 +518,8 @@
     </p>
 
     <p class="rodape__mini">
-      © <span id="ano">2026</span> Dra. Inara Contin Rassi. Todos os direitos reservados.
+      <span>© <span id="ano">2026</span> Dra. Inara Contin Rassi. Todos os direitos reservados.</span>
+      <span>Site feito pela <a class="rodape__autor" href="https://incisadigital.com.br/" target="_blank" rel="noopener">Incisa</a></span>
     </p>
   </div>
 </footer>

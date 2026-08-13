@@ -1,19 +1,18 @@
 /* ==========================================================================
    Dra. Inara Contin Rassi — folha de estilo única
-   Paleta e ritmo tirados da arte (pergaminho, tinta sépia, ouro velho, sálvia).
-   Sem gradientes decorativos, sem cards genéricos, sem grão sintético.
+   Off-white quente, tinta sépia e um só acento em ouro velho.
+   Sem ilustração, sem gradiente decorativo, sem card genérico.
    ========================================================================== */
 
 :root{
   /* --- cor --- */
-  --pergaminho:  #F0E6D4;  /* fundo dominante, igual ao papel da arte */
-  --papel:       #FAF6EE;  /* superfícies claras */
-  --papel-2:     #E7DBC5;  /* faixas de respiro */
-  --tinta:       #2B241C;  /* texto principal   — 12.3:1 sobre pergaminho */
-  --tinta-fraca: #5A5045;  /* texto secundário  —  6.2:1 sobre pergaminho */
-  --ouro:        #A9813C;  /* filetes, molduras — decorativo */
-  --ouro-texto:  #7E5F26;  /* ouro legível      —  5.1:1 sobre pergaminho */
-  --salvia:      #6E7D5E;  /* folhas da arte */
+  --pergaminho:  #F6F2EA;  /* fundo dominante — quente, mas quase branco */
+  --papel:       #FDFBF7;  /* superfícies claras */
+  --papel-2:     #EBE4D8;  /* faixas de respiro e molduras vazias */
+  --tinta:       #2B241C;  /* texto principal   — 13.3:1 sobre o fundo */
+  --tinta-fraca: #5A5045;  /* texto secundário  —  6.8:1 sobre o fundo */
+  --ouro:        #A9813C;  /* filetes e molduras — decorativo */
+  --ouro-texto:  #7E5F26;  /* ouro legível      —  5.6:1 sobre o fundo */
   --escuro:      #241F18;  /* seções escuras */
   --escuro-2:    #191510;
 
@@ -34,7 +33,12 @@
   --medida:  64ch;
 
   --filete: 1px solid color-mix(in srgb, var(--ouro) 38%, transparent);
-  --transicao: .5s cubic-bezier(.22,.75,.3,1);
+
+  /* --- movimento --- */
+  /* uma curva só para o site inteiro: é o que faz parecer sistema, e não
+     um efeito colado em cada lugar */
+  --ease: cubic-bezier(.22,.75,.3,1);
+  --transicao: .5s var(--ease);
 }
 
 /* ---------- reset enxuto ---------- */
@@ -182,8 +186,7 @@ h2 + p, h2 + .lead{ margin-top:1.1rem }
   object-fit:cover;
   object-position:var(--foco, 50% 50%);
 }
-.frame.is-missing,
-.painel__art.is-missing{
+.frame.is-missing{
   background:
     repeating-linear-gradient(-45deg,
       transparent 0 11px,
@@ -255,34 +258,48 @@ h2 + p, h2 + .lead{ margin-top:1.1rem }
 /* ==========================================================================
    TRÍPTICO — os três painéis da arte
    ========================================================================== */
-.diptico{
-  display:grid; gap:clamp(2rem,4vw,3.5rem);
-  max-width:1060px;
+/* ==========================================================================
+   AS DUAS FRENTES — sem imagem: hierarquia de tipo e filete fazem o trabalho
+   ========================================================================== */
+.frentes{
+  display:grid;
+  border-top:var(--filete);
   margin-bottom:clamp(4rem,8vw,6.5rem);
 }
-@media (min-width:760px){ .diptico{ grid-template-columns:repeat(2,1fr) } }
+.frente{
+  padding-block:clamp(2.25rem,4vw,3.25rem);
+  border-bottom:var(--filete);
+}
+@media (min-width:820px){
+  .frentes{ grid-template-columns:1fr 1fr }
+  .frente:first-child{ padding-right:clamp(2.5rem,5vw,5rem) }
+  .frente + .frente{
+    border-left:var(--filete);
+    padding-left:clamp(2.5rem,5vw,5rem);
+  }
+}
 
-/* Cada painel da arte é um arquivo próprio (807x912), já separado da
-   prancha original — assim dá para trocar um sem mexer no outro. */
-.painel__art{
-  aspect-ratio:807/912;
-  overflow:hidden;
-  border:var(--filete);
-  background:var(--papel-2);
-  margin-bottom:1.75rem;
+.frente h3{
+  font-size:clamp(1.75rem,3vw,2.5rem);
+  font-weight:300;
+  margin-bottom:.45rem;
 }
-.painel__art img{
-  width:100%; height:100%;
-  object-fit:cover;
-}
-.painel h3{ margin-bottom:.35rem }
-.painel__tag{
+.frente__tag{
   font-size:var(--t-mini);
   letter-spacing:.16em; text-transform:uppercase;
   color:var(--ouro-texto);
-  margin-bottom:1rem;
+  margin-bottom:1.35rem;
 }
-.painel p:last-child{ color:var(--tinta-fraca) }
+.frente__texto{ color:var(--tinta-fraca); max-width:46ch }
+.frente__itens{
+  margin-top:1.5rem; padding-top:1.25rem;
+  border-top:1px dotted color-mix(in srgb, var(--ouro) 45%, transparent);
+  font-size:.9063rem;
+  line-height:1.9;
+  letter-spacing:.02em;
+  color:var(--tinta);
+  max-width:46ch;
+}
 
 /* ---------- lista de procedimentos ---------- */
 .proc{ border-top:var(--filete); padding-top:clamp(2.5rem,5vw,3.5rem) }
@@ -477,7 +494,6 @@ h2 + p, h2 + .lead{ margin-top:1.1rem }
   flex:none; width:1rem;
   transition:transform var(--transicao);
 }
-.faq details[open] summary::before{ content:'–' }
 .faq summary:hover{ color:var(--ouro-texto) }
 .faq__body{ padding:0 0 1.6rem 2.25rem }
 .faq__body p{ color:var(--tinta-fraca); max-width:62ch }
@@ -607,20 +623,193 @@ h2 + p, h2 + .lead{ margin-top:1.1rem }
 }
 
 /* ==========================================================================
-   MOVIMENTO — contido de propósito: só as imagens grandes entram em cena.
+   MOVIMENTO
+   Regras da casa: uma curva só (--ease), durações longas e poucas, e nada
+   que se mexa sem motivo. Cada bloco abaixo tem uma razão anotada.
    ========================================================================== */
+
+/* --- 1. Entrada da capa -------------------------------------------------
+   Acontece no load, não no scroll: a primeira tela nunca deve chegar vazia
+   esperando o usuário rolar. Escalonamento curto, de cima para baixo. */
+@keyframes sobe{
+  from{ opacity:0; transform:translateY(18px) }
+  to  { opacity:1; transform:none }
+}
+.hero__text > *,
+.hero__portrait{
+  animation:sobe .85s var(--ease) both;
+}
+.hero__text > *:nth-child(1){ animation-delay:.04s }
+.hero__text > *:nth-child(2){ animation-delay:.10s }
+.hero__text > *:nth-child(3){ animation-delay:.16s }
+.hero__text > *:nth-child(4){ animation-delay:.22s }
+.hero__text > *:nth-child(5){ animation-delay:.28s }
+.hero__text > *:nth-child(6){ animation-delay:.34s }
+.hero__portrait{ animation-delay:.20s; animation-duration:1.1s }
+
+/* --- 2. Fio de progresso da leitura -------------------------------------
+   Substitui a barra de rolagem como referência de "quanto falta". CSS puro,
+   sem JS. Onde animation-timeline não existe, o fio simplesmente não
+   aparece — nada quebra. */
+.progresso{
+  position:absolute; left:0; bottom:-1px;
+  height:2px; width:100%;
+  background:linear-gradient(90deg, var(--ouro), color-mix(in srgb, var(--ouro) 45%, transparent));
+  transform:scaleX(0); transform-origin:0 50%;
+  pointer-events:none;
+}
+@supports (animation-timeline: scroll()){
+  .progresso{
+    animation:preenche linear both;
+    animation-timeline:scroll(root block);
+  }
+}
+@keyframes preenche{ to{ transform:scaleX(1) } }
+
+/* --- 3. Entrada por seção ------------------------------------------------
+   Deslocamento pequeno (14px) e lento. O suficiente para o olho perceber
+   que o bloco chegou; pouco para não virar carrossel. */
 [data-reveal]{
   opacity:0;
   transform:translateY(14px);
-  transition:opacity .8s ease, transform .8s cubic-bezier(.22,.75,.3,1);
+  transition:opacity .9s var(--ease), transform .9s var(--ease);
+  transition-delay:var(--atraso, 0s);
 }
 [data-reveal].is-in{ opacity:1; transform:none }
 
+/* --- 4. Foto que assenta -------------------------------------------------
+   A imagem entra levemente ampliada e volta ao lugar. Dá peso de fotografia
+   impressa em vez de "elemento que apareceu". */
+.plate[data-reveal] .frame img{
+  transform:scale(1.06);
+  transition:transform 1.6s var(--ease);
+}
+.plate[data-reveal].is-in .frame img{ transform:none }
+
+@media (hover:hover){
+  .plate[data-reveal].is-in:hover .frame img,
+  .plate:not([data-reveal]):hover .frame img{
+    transform:scale(1.03);
+    transition-duration:1.2s;
+  }
+}
+
+/* --- 5. O fio dos passos da consulta -------------------------------------
+   Cresce conforme a lista passa pela tela: a linha do tempo da consulta
+   desenhada pelo próprio scroll. Sem suporte, fica desenhada e parada. */
+.passos{ position:relative }
+.passos::before{
+  content:'';
+  position:absolute; left:0; top:0; bottom:0;
+  width:1px;
+  background:linear-gradient(180deg, var(--ouro), color-mix(in srgb, var(--ouro) 20%, transparent));
+  transform-origin:50% 0;
+  animation:risca linear both;
+}
+@keyframes risca{ from{ transform:scaleY(0) } to{ transform:scaleY(1) } }
+@supports (animation-timeline: view()){
+  .passos::before{
+    animation-timeline:view();
+    animation-range:cover 8% cover 65%;
+  }
+}
+@media (max-width:759px){ .passos::before{ display:none } }
+
+/* --- 6. Sublinhado do menu ----------------------------------------------
+   Cresce a partir da esquerda, na direção da leitura. */
+.nav a{ position:relative; border-bottom:0 }
+.nav a::after{
+  content:''; position:absolute; left:0; right:0; bottom:0;
+  height:1px; background:var(--ouro);
+  transform:scaleX(0); transform-origin:0 50%;
+  transition:transform .45s var(--ease);
+}
+.nav a:hover::after,
+.nav a:focus-visible::after,
+.nav a.is-active::after{ transform:scaleX(1) }
+
+/* --- 7. Botão que se preenche -------------------------------------------
+   A cor entra varrendo, em vez de piscar. */
+.btn{ position:relative; overflow:hidden; isolation:isolate }
+.btn::before{
+  content:''; position:absolute; inset:0; z-index:-1;
+  background:var(--ouro-texto);
+  transform:scaleX(0); transform-origin:0 50%;
+  transition:transform .55s var(--ease);
+}
+.btn:hover::before,
+.btn:focus-visible::before{ transform:scaleX(1) }
+.btn:hover,.btn:focus-visible{ background:var(--tinta); border-color:var(--ouro-texto); color:var(--pergaminho) }
+.btn--ghost:hover,.btn--ghost:focus-visible{ background:none; color:var(--pergaminho) }
+
+/* --- 8. Cabeçalho que encolhe -------------------------------------------
+   Depois do primeiro scroll a barra cede altura para o conteúdo. */
+.topbar__in{ transition:min-height var(--transicao) }
+.brand__name{ transition:font-size var(--transicao) }
+.brand__role{
+  transition:opacity var(--transicao), max-height var(--transicao);
+  max-height:2rem; overflow:hidden;
+}
+@media (min-width:960px){
+  .topbar.is-stuck .topbar__in{ min-height:3.9rem }
+  .topbar.is-stuck .brand__name{ font-size:1.2rem }
+  .topbar.is-stuck .brand__role{ opacity:0; max-height:0 }
+}
+
+/* --- 9. Sanfona das dúvidas ---------------------------------------------
+   Abre com altura animada onde o navegador já sabe interpolar 'auto'.
+   Nos outros, abre na hora — que é o comportamento nativo. */
+.faq summary::before{ transition:transform .35s var(--ease), color var(--transicao) }
+.faq details[open] summary::before{ transform:rotate(45deg) }  /* o + vira × */
+@supports (interpolate-size: allow-keywords){
+  :root{ interpolate-size:allow-keywords }
+  .faq details::details-content{
+    block-size:0;
+    overflow:hidden;
+    transition:block-size .5s var(--ease), content-visibility .5s allow-discrete;
+  }
+  .faq details[open]::details-content{ block-size:auto }
+}
+
+/* --- 10. Links de contato ------------------------------------------------ */
+.canais__valor{
+  font-family:var(--serifa);
+  font-size:clamp(1.35rem,2.4vw,1.75rem);
+  color:#EFE7D8; text-decoration:none;
+  display:inline-block;
+  position:relative;
+}
+.canais__valor::after{
+  content:''; position:absolute; left:0; right:0; bottom:-.15em;
+  height:1px; background:#DCBB7C;
+  transform:scaleX(0); transform-origin:0 50%;
+  transition:transform .45s var(--ease);
+}
+.canais__valor:hover::after,
+.canais__valor:focus-visible::after{ transform:scaleX(1) }
+.canais__valor:hover{ color:#DCBB7C }
+
+.rodape__mini{
+  max-width:none;
+  display:flex; flex-wrap:wrap; gap:.35rem 2rem;
+  justify-content:space-between;
+}
+.rodape__autor{
+  color:#C7BCA9; text-decoration:none;
+  border-bottom:1px solid color-mix(in srgb, #DCBB7C 40%, transparent);
+  transition:color var(--transicao), border-color var(--transicao);
+}
+.rodape__autor:hover{ color:#DCBB7C; border-color:#DCBB7C }
+
+/* --- Quem pediu menos movimento recebe menos movimento ------------------- */
 @media (prefers-reduced-motion:reduce){
   html{ scroll-behavior:auto }
   *,*::before,*::after{
     animation-duration:.01ms !important;
+    animation-delay:0ms !important;
     transition-duration:.01ms !important;
   }
   [data-reveal]{ opacity:1; transform:none }
+  .plate[data-reveal] .frame img{ transform:none }
+  .progresso{ display:none }
 }

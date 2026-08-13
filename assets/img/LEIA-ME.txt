@@ -4,14 +4,8 @@ IMAGENS DO SITE
 JÁ ESTÃO AQUI
 -------------
 
-arte-blefaroplastia.jpg   807 x 912 — painel esquerdo da prancha.
-arte-oftalmologia.jpg     807 x 912 — painel direito da prancha.
-
-     Vieram da arte que você mandou (1660 x 912, os dois painéis com uma
-     divisória escura no meio, em x 807..852). Separei em dois arquivos:
-     assim dá para trocar um painel sem mexer no outro, e a divisória some.
-     Se mandar uma arte nova, salve já cortada em dois, na proporção 807:912
-     (ou perto disso). Controle: assets/css/site.css → .painel__art
+As ilustrações saíram do site — a Dra. Inara preferiu um visual mais limpo.
+As seções que as usavam agora se apoiam só em tipografia e filete.
 
 consultorio.jpg           1280 x 960 — a sala de exames, original inteira.
      Entra em toda a largura; o corte é só na altura (16/9 mostra 75% dela,

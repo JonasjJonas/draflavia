@@ -9,7 +9,7 @@
      Assim que o arquivo for colocado em assets/img/, o placeholder
      some sozinho — não precisa mexer no HTML.
      -------------------------------------------------------------- */
-  document.querySelectorAll('.frame, .painel__art').forEach((moldura) => {
+  document.querySelectorAll('.frame').forEach((moldura) => {
     const img = moldura.querySelector('img');
     if (!img) return;
 

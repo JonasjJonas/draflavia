@@ -41,8 +41,8 @@ preenchido — não precisa caçar no código.
 - [ ] Hospitais/centros cirúrgicos onde opera
 
 ### Contato
-- [ ] WhatsApp com DDD (vira link `wa.me`)
-- [ ] Telefone do consultório
+- [x] WhatsApp / telefone (11) 93045-5259 — os botões "Agendar" e a seção de
+      contato abrem a conversa no WhatsApp com mensagem pronta
 - [ ] E-mail
 - [ ] Instagram
 
@@ -64,7 +64,8 @@ preenchido — não precisa caçar no código.
 ### Fotos
 - [ ] Retrato da Dra. Inara (vertical 4:5)
 - [ ] Foto dela no consultório (vertical 3:4)
-- [x] Arte dos dois painéis e fotos da clínica — já no site
+- [x] Fotos da clínica — já no site
+- [x] Ilustrações removidas a pedido dela (visual mais limpo)
 - [ ] Se existirem, substituir pelos originais da câmera (as atuais vieram
       reduzidas; ver `assets/img/LEIA-ME.txt`)
 - [ ] Decidir se a foto da recepção pode mostrar a placa "Lavezzo & Takigami"
