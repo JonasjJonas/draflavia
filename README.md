@@ -47,8 +47,11 @@ preenchido — não precisa caçar no código.
 - [ ] Instagram
 
 ### Consultório
-- [ ] Endereço completo, com CEP e sala
-- [ ] Confirmar a **cidade** — o site diz São Paulo, herdado do briefing
+- [x] Endereço: Rua Maria Figueiredo, 595 — conjunto 83, Paraíso, São Paulo/SP
+- [x] Mapa do Google incorporado na página
+- [ ] Conferir o **CEP 04002-003** — veio da geolocalização do Google, não de você
+- [ ] Conferir o **metrô**: pelo mapa a estação Brigadeiro (Linha 2-Verde) é a
+      mais próxima; falta a distância a pé
 - [ ] Dias e horários de atendimento
 - [ ] Convênios atendidos (ou "apenas particular")
 - [ ] Estacionamento
@@ -57,8 +60,9 @@ preenchido — não precisa caçar no código.
 - [ ] Iframe de incorporação do Google Maps
 
 ### Conteúdo clínico
-- [ ] Revisar a lista de consultas, exames e cirurgias — o que entra, o que sai
-- [ ] Confirmar quais exames são feitos no próprio consultório
+- [x] Lista de procedimentos — agora é exatamente a que você mandou
+- [ ] "Microscopia": especular ou confocal?
+- [ ] Completar a lista de aparelhos (o "entre outros")
 - [ ] Resposta sobre convênios na seção de dúvidas
 
 ### Fotos
